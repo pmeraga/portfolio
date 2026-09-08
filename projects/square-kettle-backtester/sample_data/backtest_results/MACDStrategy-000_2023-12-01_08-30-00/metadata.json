@@ -1,0 +1,16 @@
+{
+  "total_return": -0.03562500000000002,
+  "sharpe_ratio": -9.325688525870689,
+  "max_drawdown": -0.04185295578738202,
+  "win_rate": 0.20714285714285716,
+  "profit_factor": 0.602728350222997,
+  "start_time": "2023-12-01T08:30:00.163463+00:00",
+  "end_time": "2023-12-08T14:33:00+00:00",
+  "strategy_name": "MACDStrategy-000",
+  "instruments": [
+    "ES.n.0.GLBX"
+  ],
+  "format": "csv",
+  "folder_name": "MACDStrategy-000_2023-12-01_08-30-00",
+  "save_timestamp": "2025-12-14T00:58:29.342578"
+}

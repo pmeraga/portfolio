@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "squarekettle-backtester"
+version = "1.1.0"
+description = "Square Kettle Custom Backtester"
+requires-python = ">=3.8"
+dependencies = [
+    # Core data & backtesting stack
+    "nautilus-trader>=1.220.0",
+    "databento>=0.39.0",
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "pyarrow>=15.0.0",
+    "zstandard>=0.22.0",
+    
+    # CLI, config, validation
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "click>=8.1.0",
+    "tqdm>=4.66.0",
+    "rich>=13.7.0",
+    
+    # Viz
+    "matplotlib>=3.8.0",
+    "plotly>=5.20.0",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    
+    # Optional performance
+    "polars>=0.20.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[tool.setuptools.package-data]
+viz = ["static/dist/**/*"]  # Include all built frontend files

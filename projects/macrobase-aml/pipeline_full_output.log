@@ -1,0 +1,309 @@
+================================================================================
+MACROBASE ANOMALY DETECTION PIPELINE
+================================================================================
+
+[STAGE 1] DATA INGESTION
+--------------------------------------------------------------------------------
+Loading data from /Users/pranav_meraga/.cache/kagglehub/datasets/berkanoztas/synthetic-transaction-monitoring-dataset-aml/versions/2/SAML-D.csv...
+Original dataset size: 9,504,852 rows
+Using full dataset...
+
+[STAGE 2] FEATURE ENGINEERING
+--------------------------------------------------------------------------------
+Engineering temporal features...
+Engineering continuous features...
+Engineering categorical features...
+Created 12 engineered features
+Feature columns: ['year', 'month', 'day_of_week', 'day_of_month', 'hour', 'log_amount', 'transactions_per_account_7d', 'transactions_per_account_30d', 'payment_method_encoded', 'currency_encoded', 'receiver_country_encoded', 'sender_country_encoded']
+
+[STAGE 3A] SCORING (Unsupervised)
+--------------------------------------------------------------------------------
+Fitting IsolationForest...
+Generating anomaly scores...
+Score range: [0.3751, 0.7433]
+
+[STAGE 3B] CLASSIFICATION
+--------------------------------------------------------------------------------
+Threshold 99.95%: 4,757 anomalous, 9,500,095 normal
+Threshold 99.9%: 9,506 anomalous, 9,495,346 normal
+Threshold 99.5%: 47,525 anomalous, 9,457,327 normal
+Threshold 99.0%: 95,049 anomalous, 9,409,803 normal
+Threshold 98.0%: 190,098 anomalous, 9,314,754 normal
+
+[STAGE 3C] EXPLANATION
+--------------------------------------------------------------------------------
+Finding explanatory predicates...
+Found 139 explanatory predicates
+
+[STAGE 4] EVALUATION
+--------------------------------------------------------------------------------
+
+Precision/Recall Trade-off Across Thresholds:
+--------------------------------------------------------------------------------
+ threshold_percentile  recovery_rate  precision_proxy  anomalous_set_size  suspicious_in_A
+                99.95         0.0005              1.0                4757             4757
+                99.90         0.0010              1.0                9506             9506
+                99.50         0.0050              1.0               47525            47525
+                99.00         0.0100              1.0               95049            95049
+                98.00         0.0200              1.0              190098           190098
+
+================================================================================
+TOP 50 ALERTS
+================================================================================
+
+TRANSACTIONS:
+--------------------------------------------------------------------------------
+
+Alert #1 (Global Index: 599274, Score: 0.7433)
+  {'Time': '07:20:53', 'Date': '2022-10-28', 'Sender_account': 8169967989, 'Receiver_account': 8253655560, 'Amount': 39.96, 'Payment_currency': 'Euro', 'Received_currency': 'Euro', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'France', 'Payment_type': 'ACH', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2022-10-28 07:20:53'), 'account_id': 8169967989, 'amount': 39.96, 'payment_method': 'ACH', 'currency': 'Euro', 'receiver_country': 'France', 'sender_country': 'France'}
+
+Alert #2 (Global Index: 3326088, Score: 0.7409)
+  {'Time': '22:52:31', 'Date': '2023-01-28', 'Sender_account': 7337750922, 'Receiver_account': 8620207031, 'Amount': 515.88, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2023-01-28 22:52:31'), 'account_id': 7337750922, 'amount': 515.88, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #3 (Global Index: 1164684, Score: 0.7393)
+  {'Time': '00:30:48', 'Date': '2022-11-16', 'Sender_account': 8686240466, 'Receiver_account': 3637695477, 'Amount': 11893.73, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-16 00:30:48'), 'account_id': 8686240466, 'amount': 11893.73, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #4 (Global Index: 1779225, Score: 0.7373)
+  {'Time': '00:01:32', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16097.87, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 00:01:32'), 'account_id': 2610287458, 'amount': 16097.87, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #5 (Global Index: 1807708, Score: 0.7369)
+  {'Time': '23:59:53', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26813.81, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 23:59:53'), 'account_id': 2610287458, 'amount': 26813.81, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #6 (Global Index: 1894508, Score: 0.7369)
+  {'Time': '23:49:43', 'Date': '2022-12-10', 'Sender_account': 4988967549, 'Receiver_account': 6715341584, 'Amount': 554.13, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cheque', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2022-12-10 23:49:43'), 'account_id': 4988967549, 'amount': 554.13, 'payment_method': 'Cheque', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #7 (Global Index: 5261039, Score: 0.7366)
+  {'Time': '05:30:10', 'Date': '2023-04-02', 'Sender_account': 6334961193, 'Receiver_account': 2235135304, 'Amount': 1321.51, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2023-04-02 05:30:10'), 'account_id': 6334961193, 'amount': 1321.51, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'France'}
+
+Alert #8 (Global Index: 1193332, Score: 0.7364)
+  {'Time': '23:20:10', 'Date': '2022-11-16', 'Sender_account': 8686240466, 'Receiver_account': 3637695477, 'Amount': 11893.72, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-16 23:20:10'), 'account_id': 8686240466, 'amount': 11893.72, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #9 (Global Index: 1165351, Score: 0.7358)
+  {'Time': '02:20:54', 'Date': '2022-11-16', 'Sender_account': 8686240466, 'Receiver_account': 3637695477, 'Amount': 11816.74, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-16 02:20:54'), 'account_id': 8686240466, 'amount': 11816.74, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #10 (Global Index: 6132187, Score: 0.7354)
+  {'Time': '02:39:33', 'Date': '2023-05-01', 'Sender_account': 4144143737, 'Receiver_account': 2128918710, 'Amount': 15981.86, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-05-01 02:39:33'), 'account_id': 4144143737, 'amount': 15981.86, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+Alert #11 (Global Index: 1807002, Score: 0.7349)
+  {'Time': '23:32:15', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16598.03, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 23:32:15'), 'account_id': 2610287458, 'amount': 16598.03, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #12 (Global Index: 1806714, Score: 0.7349)
+  {'Time': '23:21:22', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16185.45, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 23:21:22'), 'account_id': 2610287458, 'amount': 16185.45, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #13 (Global Index: 5917696, Score: 0.7338)
+  {'Time': '03:24:26', 'Date': '2023-04-24', 'Sender_account': 6334961193, 'Receiver_account': 2235135304, 'Amount': 1247.44, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2023-04-24 03:24:26'), 'account_id': 6334961193, 'amount': 1247.44, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'France'}
+
+Alert #14 (Global Index: 9409615, Score: 0.7336)
+  {'Time': '03:43:15', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11907.48, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 03:43:15'), 'account_id': 8422735905, 'amount': 11907.48, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #15 (Global Index: 1434050, Score: 0.7333)
+  {'Time': '02:59:41', 'Date': '2022-11-25', 'Sender_account': 7866862434, 'Receiver_account': 2411498582, 'Amount': 10668.83, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-25 02:59:41'), 'account_id': 7866862434, 'amount': 10668.83, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+Alert #16 (Global Index: 1433595, Score: 0.7333)
+  {'Time': '01:46:00', 'Date': '2022-11-25', 'Sender_account': 7866862434, 'Receiver_account': 2411498582, 'Amount': 10744.32, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-25 01:46:00'), 'account_id': 7866862434, 'amount': 10744.32, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+Alert #17 (Global Index: 1805932, Score: 0.7329)
+  {'Time': '22:51:25', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26854.14, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 22:51:25'), 'account_id': 2610287458, 'amount': 26854.14, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #18 (Global Index: 1780254, Score: 0.7323)
+  {'Time': '02:46:52', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16425.52, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 02:46:52'), 'account_id': 2610287458, 'amount': 16425.52, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #19 (Global Index: 1191550, Score: 0.7319)
+  {'Time': '22:13:20', 'Date': '2022-11-16', 'Sender_account': 8686240466, 'Receiver_account': 3637695477, 'Amount': 11914.31, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-16 22:13:20'), 'account_id': 8686240466, 'amount': 11914.31, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #20 (Global Index: 1192372, Score: 0.7319)
+  {'Time': '22:43:32', 'Date': '2022-11-16', 'Sender_account': 8686240466, 'Receiver_account': 3637695477, 'Amount': 11857.59, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Germany', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-16 22:43:32'), 'account_id': 8686240466, 'amount': 11857.59, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Germany', 'sender_country': 'Albania'}
+
+Alert #21 (Global Index: 1803729, Score: 0.7318)
+  {'Time': '21:27:36', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26653.01, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 21:27:36'), 'account_id': 2610287458, 'amount': 26653.01, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #22 (Global Index: 1804821, Score: 0.7310)
+  {'Time': '22:07:16', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16308.34, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 22:07:16'), 'account_id': 2610287458, 'amount': 16308.34, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #23 (Global Index: 1804949, Score: 0.7310)
+  {'Time': '22:12:06', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 8176572363, 'Amount': 16413.84, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Dirham', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 22:12:06'), 'account_id': 2610287458, 'amount': 16413.84, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #24 (Global Index: 1801202, Score: 0.7309)
+  {'Time': '19:49:02', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26823.97, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 19:49:02'), 'account_id': 2610287458, 'amount': 26823.97, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #25 (Global Index: 1800014, Score: 0.7309)
+  {'Time': '19:03:14', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26902.94, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 19:03:14'), 'account_id': 2610287458, 'amount': 26902.94, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #26 (Global Index: 4495778, Score: 0.7306)
+  {'Time': '00:01:01', 'Date': '2023-03-07', 'Sender_account': 5118212459, 'Receiver_account': 6086987022, 'Amount': 10153.62, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-03-07 00:01:01'), 'account_id': 5118212459, 'amount': 10153.62, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'France'}
+
+Alert #27 (Global Index: 9437603, Score: 0.7305)
+  {'Time': '23:14:19', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11839.66, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Credit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 23:14:19'), 'account_id': 8422735905, 'amount': 11839.66, 'payment_method': 'Credit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #28 (Global Index: 4496115, Score: 0.7301)
+  {'Time': '00:58:52', 'Date': '2023-03-07', 'Sender_account': 7277552580, 'Receiver_account': 1392062830, 'Amount': 6502.21, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-03-07 00:58:52'), 'account_id': 7277552580, 'amount': 6502.21, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'France'}
+
+Alert #29 (Global Index: 1434797, Score: 0.7301)
+  {'Time': '05:05:21', 'Date': '2022-11-25', 'Sender_account': 7866862434, 'Receiver_account': 2411498582, 'Amount': 10778.37, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-25 05:05:21'), 'account_id': 7866862434, 'amount': 10778.37, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+Alert #30 (Global Index: 1799072, Score: 0.7300)
+  {'Time': '18:26:47', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26543.71, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 18:26:47'), 'account_id': 2610287458, 'amount': 26543.71, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #31 (Global Index: 9426432, Score: 0.7298)
+  {'Time': '16:38:12', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11910.11, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 16:38:12'), 'account_id': 8422735905, 'amount': 11910.11, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #32 (Global Index: 6159845, Score: 0.7292)
+  {'Time': '23:58:19', 'Date': '2023-05-01', 'Sender_account': 4144143737, 'Receiver_account': 2128918710, 'Amount': 16365.97, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-05-01 23:58:19'), 'account_id': 4144143737, 'amount': 16365.97, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+Alert #33 (Global Index: 9428987, Score: 0.7289)
+  {'Time': '18:08:50', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11867.89, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 18:08:50'), 'account_id': 8422735905, 'amount': 11867.89, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #34 (Global Index: 2814554, Score: 0.7288)
+  {'Time': '16:23:43', 'Date': '2023-01-11', 'Sender_account': 226606102, 'Receiver_account': 8622361726, 'Amount': 166.97, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Small_Fan_Out', 'transaction_date': Timestamp('2023-01-11 16:23:43'), 'account_id': 226606102, 'amount': 166.97, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #35 (Global Index: 3802972, Score: 0.7285)
+  {'Time': '23:59:47', 'Date': '2023-02-12', 'Sender_account': 1887745150, 'Receiver_account': 9942361594, 'Amount': 5802.87, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'ACH', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-02-12 23:59:47'), 'account_id': 1887745150, 'amount': 5802.87, 'payment_method': 'ACH', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #36 (Global Index: 3269926, Score: 0.7284)
+  {'Time': '23:29:51', 'Date': '2023-01-26', 'Sender_account': 9759544522, 'Receiver_account': 9439729133, 'Amount': 10996.87, 'Payment_currency': 'Euro', 'Received_currency': 'Euro', 'Sender_bank_location': 'Austria', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-01-26 23:29:51'), 'account_id': 9759544522, 'amount': 10996.87, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'France', 'sender_country': 'Austria'}
+
+Alert #37 (Global Index: 3269806, Score: 0.7284)
+  {'Time': '23:24:49', 'Date': '2023-01-26', 'Sender_account': 9759544522, 'Receiver_account': 9439729133, 'Amount': 10933.15, 'Payment_currency': 'Euro', 'Received_currency': 'Euro', 'Sender_bank_location': 'Austria', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-01-26 23:24:49'), 'account_id': 9759544522, 'amount': 10933.15, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'France', 'sender_country': 'Austria'}
+
+Alert #38 (Global Index: 9421330, Score: 0.7284)
+  {'Time': '13:41:15', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11997.86, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 13:41:15'), 'account_id': 8422735905, 'amount': 11997.86, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #39 (Global Index: 1795276, Score: 0.7283)
+  {'Time': '16:02:46', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26639.23, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 16:02:46'), 'account_id': 2610287458, 'amount': 26639.23, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #40 (Global Index: 1796199, Score: 0.7283)
+  {'Time': '16:35:35', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26844.68, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 16:35:35'), 'account_id': 2610287458, 'amount': 26844.68, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #41 (Global Index: 738431, Score: 0.7279)
+  {'Time': '23:05:56', 'Date': '2022-11-01', 'Sender_account': 1350315263, 'Receiver_account': 9583912749, 'Amount': 17936.76, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-01 23:05:56'), 'account_id': 1350315263, 'amount': 17936.76, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #42 (Global Index: 1785128, Score: 0.7278)
+  {'Time': '09:48:41', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26931.12, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 09:48:41'), 'account_id': 2610287458, 'amount': 26931.12, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #43 (Global Index: 9413109, Score: 0.7278)
+  {'Time': '08:59:23', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11840.51, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Debit card', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 08:59:23'), 'account_id': 8422735905, 'amount': 11840.51, 'payment_method': 'Debit card', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #44 (Global Index: 826772, Score: 0.7275)
+  {'Time': '00:41:05', 'Date': '2022-11-05', 'Sender_account': 1455968018, 'Receiver_account': 6609899209, 'Amount': 11145.08, 'Payment_currency': 'Euro', 'Received_currency': 'Euro', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Austria', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-05 00:41:05'), 'account_id': 1455968018, 'amount': 11145.08, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Austria', 'sender_country': 'Germany'}
+
+Alert #45 (Global Index: 2742741, Score: 0.7274)
+  {'Time': '04:44:58', 'Date': '2023-01-09', 'Sender_account': 2734795477, 'Receiver_account': 2805503665, 'Amount': 7122.83, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-01-09 04:44:58'), 'account_id': 2734795477, 'amount': 7122.83, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'France'}
+
+Alert #46 (Global Index: 1789093, Score: 0.7273)
+  {'Time': '12:13:48', 'Date': '2022-12-07', 'Sender_account': 2610287458, 'Receiver_account': 7257543383, 'Amount': 26820.83, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'France', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-12-07 12:13:48'), 'account_id': 2610287458, 'amount': 26820.83, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'France', 'sender_country': 'Albania'}
+
+Alert #47 (Global Index: 2507241, Score: 0.7272)
+  {'Time': '01:41:08', 'Date': '2023-01-01', 'Sender_account': 854801746, 'Receiver_account': 6900367915, 'Amount': 13487.53, 'Payment_currency': 'Euro', 'Received_currency': 'Indian rupee', 'Sender_bank_location': 'France', 'Receiver_bank_location': 'India', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-01-01 01:41:08'), 'account_id': 854801746, 'amount': 13487.53, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'India', 'sender_country': 'France'}
+
+Alert #48 (Global Index: 3935508, Score: 0.7270)
+  {'Time': '02:36:24', 'Date': '2023-02-17', 'Sender_account': 1334298898, 'Receiver_account': 6920737634, 'Amount': 198124.1, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Euro', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Austria', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Plus_Mutual', 'transaction_date': Timestamp('2023-02-17 02:36:24'), 'account_id': 1334298898, 'amount': 198124.1, 'payment_method': 'Cross-border', 'currency': 'Albanian lek', 'receiver_country': 'Austria', 'sender_country': 'Albania'}
+
+Alert #49 (Global Index: 9418546, Score: 0.7270)
+  {'Time': '12:04:31', 'Date': '2023-08-20', 'Sender_account': 8422735905, 'Receiver_account': 9821204116, 'Amount': 11984.57, 'Payment_currency': 'Albanian lek', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Albania', 'Receiver_bank_location': 'Albania', 'Payment_type': 'ACH', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2023-08-20 12:04:31'), 'account_id': 8422735905, 'amount': 11984.57, 'payment_method': 'ACH', 'currency': 'Albanian lek', 'receiver_country': 'Albania', 'sender_country': 'Albania'}
+
+Alert #50 (Global Index: 1460405, Score: 0.7269)
+  {'Time': '23:06:05', 'Date': '2022-11-25', 'Sender_account': 7866862434, 'Receiver_account': 2411498582, 'Amount': 10711.94, 'Payment_currency': 'Euro', 'Received_currency': 'Albanian lek', 'Sender_bank_location': 'Germany', 'Receiver_bank_location': 'Albania', 'Payment_type': 'Cross-border', 'Is_laundering': 0, 'Laundering_type': 'Normal_Fan_Out', 'transaction_date': Timestamp('2022-11-25 23:06:05'), 'account_id': 7866862434, 'amount': 10711.94, 'payment_method': 'Cross-border', 'currency': 'Euro', 'receiver_country': 'Albania', 'sender_country': 'Germany'}
+
+
+TOP EXPLANATORY PREDICATES:
+--------------------------------------------------------------------------------
+
+Predicate: receiver_country=France & sender_country=Albania
+  Support: 0.0187 (89 occurrences in A)
+  Risk Ratio: inf
+  Count in Normal set: 0
+
+Predicate: receiver_country=Italy & sender_country=Albania
+  Support: 0.0116 (55 occurrences in A)
+  Risk Ratio: inf
+  Count in Normal set: 0
+
+Predicate: receiver_country=Albania & sender_country=France
+  Support: 0.0248 (118 occurrences in A)
+  Risk Ratio: 235655.08
+  Count in Normal set: 1
+
+Predicate: receiver_country=Albania & sender_country=Germany
+  Support: 0.0206 (98 occurrences in A)
+  Risk Ratio: 195713.54
+  Count in Normal set: 1
+
+Predicate: receiver_country=France & sender_country=Austria
+  Support: 0.0168 (80 occurrences in A)
+  Risk Ratio: 31953.23
+  Count in Normal set: 5
+
+Predicate: receiver_country=Germany & sender_country=Albania
+  Support: 0.0256 (122 occurrences in A)
+  Risk Ratio: 24364.34
+  Count in Normal set: 10
+
+Predicate: receiver_country=Japan & sender_country=Albania
+  Support: 0.0139 (66 occurrences in A)
+  Risk Ratio: 21967.85
+  Count in Normal set: 6
+
+Predicate: receiver_country=India & sender_country=France
+  Support: 0.0166 (79 occurrences in A)
+  Risk Ratio: 15776.91
+  Count in Normal set: 10
+
+Predicate: receiver_country=Austria & sender_country=France
+  Support: 0.0162 (77 occurrences in A)
+  Risk Ratio: 13979.54
+  Count in Normal set: 11
+
+Predicate: receiver_country=Japan & sender_country=Germany
+  Support: 0.0114 (54 occurrences in A)
+  Risk Ratio: 9803.83
+  Count in Normal set: 11
+
+Predicate: receiver_country=Germany & sender_country=France
+  Support: 0.0183 (87 occurrences in A)
+  Risk Ratio: 9652.54
+  Count in Normal set: 18
+
+Predicate: receiver_country=Germany & sender_country=Austria
+  Support: 0.0137 (65 occurrences in A)
+  Risk Ratio: 9272.14
+  Count in Normal set: 14
+
+Predicate: receiver_country=Albania & sender_country=Italy
+  Support: 0.0124 (59 occurrences in A)
+  Risk Ratio: 9063.66
+  Count in Normal set: 13
+
+Predicate: receiver_country=France & sender_country=Germany
+  Support: 0.0139 (66 occurrences in A)
+  Risk Ratio: 8237.94
+  Count in Normal set: 16
+
+Predicate: receiver_country=Italy & sender_country=France
+  Support: 0.0162 (77 occurrences in A)
+  Risk Ratio: 7688.75
+  Count in Normal set: 20
+
+Predicate: receiver_country=Austria & sender_country=Italy
+  Support: 0.0128 (61 occurrences in A)
+  Risk Ratio: 6767.87
+  Count in Normal set: 18
+
+Predicate: receiver_country=Albania & sender_country=India
+  Support: 0.0185 (88 occurrences in A)
+  Risk Ratio: 6276.53
+  Count in Normal set: 28
+
+Predicate: currency=Albanian lek & receiver_country=Germany
+  Support: 0.0259 (123 occurrences in A)
+  Risk Ratio: 5848.58
+  Count in Normal set: 42
+
+Predicate: currency=Albanian lek & receiver_country=France
+  Support: 0.0187 (89 occurrences in A)
+  Risk Ratio: 5733.54
+  Count in Normal set: 31
+
+Predicate: receiver_country=Netherlands & sender_country=Albania
+  Support: 0.0153 (73 occurrences in A)
+  Risk Ratio: 5607.18
+  Count in Normal set: 26

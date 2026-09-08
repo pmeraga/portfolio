@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <label>Listing</label>
+    <nameField>
+        <label>Listing Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Listings</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <fields>
+        <fullName>Broker__c</fullName>
+        <label>Broker</label>
+        <referenceTo>Broker__c</referenceTo>
+        <relationshipLabel>Listings</relationshipLabel>
+        <relationshipName>Listings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Price__c</fullName>
+        <label>List price</label>
+        <precision>16</precision>
+        <scale>2</scale>
+        <required>false</required>
+        <type>Currency</type>
+    </fields>
+</CustomObject>

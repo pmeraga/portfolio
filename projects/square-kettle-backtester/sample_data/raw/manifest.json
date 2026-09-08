@@ -1,0 +1,55 @@
+{
+  "artifacts": {
+    "6879bdecac275bbd495ea5800ca3bb53a1b8d49a8dc5215854be53208aa444ee": {
+      "key": "6879bdecac275bbd495ea5800ca3bb53a1b8d49a8dc5215854be53208aa444ee",
+      "dataset": "GLBX.MDP3",
+      "symbols": [
+        "ES.n.0"
+      ],
+      "stype_in": "continuous",
+      "schema": "trades",
+      "start": "2023-12-01T08:30:00Z",
+      "end": "2023-12-08T15:01:00Z",
+      "path": "sample_data\\raw\\GLBX.MDP3__ES.n.0__continuous__trades__20231201T083000Z__20231208T150100Z__6879bdecac275bbd495ea5800ca3bb53a1b8d49a8dc5215854be53208aa444ee.dbn.zst",
+      "sha256": "e4c2ec043a676aafd700d6b714f3c7a455f35076895a74ffc55fb9774c84f156",
+      "bytes": 30093208,
+      "created_at_utc": "2025-12-14T04:07:28.904008+00:00",
+      "record_count": null,
+      "notes": "quickstart"
+    },
+    "5c52ef00e5af12cafc193ab85a679273976d5707b44deef58fff2bf208c84150": {
+      "key": "5c52ef00e5af12cafc193ab85a679273976d5707b44deef58fff2bf208c84150",
+      "dataset": "GLBX.MDP3",
+      "symbols": [
+        "ES.n.0"
+      ],
+      "stype_in": "continuous",
+      "schema": "tbbo",
+      "start": "2023-12-01T08:30:00Z",
+      "end": "2023-12-08T15:01:00Z",
+      "path": "sample_data\\raw\\GLBX.MDP3__ES.n.0__continuous__tbbo__20231201T083000Z__20231208T150100Z__5c52ef00e5af12cafc193ab85a679273976d5707b44deef58fff2bf208c84150.dbn.zst",
+      "sha256": "28fc7f9236431e3d205d87a98e358134d5618d3a49083b6afbbfce7d6a7743be",
+      "bytes": 43400526,
+      "created_at_utc": "2025-12-14T04:07:43.432853+00:00",
+      "record_count": null,
+      "notes": "quickstart"
+    },
+    "55c0e63d03d4c35f53b20d0fd8702c01750070b7e49818fcc541cf944764c6e4": {
+      "key": "55c0e63d03d4c35f53b20d0fd8702c01750070b7e49818fcc541cf944764c6e4",
+      "dataset": "GLBX.MDP3",
+      "symbols": [
+        "ES.n.0"
+      ],
+      "stype_in": "continuous",
+      "schema": "ohlcv-1m",
+      "start": "2023-12-01T08:30:00Z",
+      "end": "2023-12-08T15:01:00Z",
+      "path": "sample_data\\raw\\GLBX.MDP3__ES.n.0__continuous__ohlcv-1m__20231201T083000Z__20231208T150100Z__55c0e63d03d4c35f53b20d0fd8702c01750070b7e49818fcc541cf944764c6e4.dbn.zst",
+      "sha256": "a641c9ea57ad4313ef3c44dc545b0791a70e98591c555701439e60011855e17e",
+      "bytes": 103006,
+      "created_at_utc": "2025-12-14T04:07:47.084563+00:00",
+      "record_count": null,
+      "notes": "quickstart"
+    }
+  }
+}

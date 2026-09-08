@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+/dist/
+build/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Editors/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local secrets
+.env
+.env.*
+
+# Data (large, generated)
+catalog/
+raw/
+interim/
+
+# Exception: Include sample_data for assessment
+!sample_data/
+!sample_data/*/
+!sample_data/*/*
+!sample_data/*/*/*
+!sample_data/*/*/*/*
+
+# Plots/reports that are re-generated (keep CSV outputs by default)
+outputs/*.png
+outputs/*.html
+outputs/*.pdf
+
+# Logs / scratch
+logs/
+*.log
+tmp/
+
+# Backtest generated data
+backtest_results/
+# Exception: Include for assessment
+!sample_data/backtest_results/
+.mk_raw_paths.txt
+
+# Frontend/Node.js
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.tsbuildinfo
+
+# Frontend build outputs
+build/
+.vite/
+.next/
+coverage/
+*.tgz
+*.tar.gz

@@ -1,0 +1,11 @@
+turbopuffer
+voyageai
+openai
+pyyaml
+numpy
+requests
+python-dotenv
+tenacity
+# Optional: only needed for the local CrossEncoder reranker fallback.
+# Import is lazy so the core pipeline runs without it.
+# sentence-transformers

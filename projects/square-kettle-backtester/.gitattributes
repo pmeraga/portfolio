@@ -1,0 +1,4 @@
+# Binary files - mark for proper git handling
+*.dbn.zst binary
+*.parquet binary
+*.zst binary

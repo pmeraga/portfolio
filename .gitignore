@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.entire/
+projects/mercor-candidate-search/results/
+projects/sf-code-intelligence/index.db

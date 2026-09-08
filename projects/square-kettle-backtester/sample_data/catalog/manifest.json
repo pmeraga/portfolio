@@ -1,0 +1,23 @@
+{
+  "instrument_id": "ES.n.0.GLBX",
+  "classes": {
+    "Bar": 7288,
+    "QuoteTick": 2196589,
+    "TradeTick": 2196589
+  },
+  "time_bounds_ns": {
+    "Bar": {
+      "min": 1701419460000000000,
+      "max": 1702047660000000000
+    },
+    "QuoteTick": {
+      "min": 1701419400163463630,
+      "max": 1702047659932237367
+    },
+    "TradeTick": {
+      "min": 1701419400163463630,
+      "max": 1702047659932237367
+    }
+  },
+  "catalog_path": "sample_data\\catalog"
+}
