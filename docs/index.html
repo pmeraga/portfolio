@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12191c">
+  <meta name="description" content="Pranav Meraga's engineering portfolio: machine learning, robotics, retrieval systems, and research published by Northwestern University.">
+  <meta property="og:title" content="Pranav Meraga — Engineering Portfolio">
+  <meta property="og:description" content="Machine learning, systems, and robotics. Selected projects and research by Pranav Meraga.">
+  <meta property="og:type" content="website">
+  <title>Pranav Meraga — Engineering Portfolio</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap">
+  <a class="identity" href="#" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a>
+  <nav aria-label="Main navigation"><a href="#work">Selected work</a><a href="#research">Research</a><a href="https://github.com/pmeraga" class="nav-github">GitHub <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main id="main">
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div class="hero-top"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Pranav Meraga / Engineering portfolio</p><span class="hero-index" aria-hidden="true">ML × SYSTEMS × ROBOTICS</span></div>
+  <h1 id="hero-title">Ideas into code.<br>Code into <span class="accent-word">motion<span aria-hidden="true">↗</span></span></h1>
+  <div class="hero-bottom"><p>I’m Pranav, an engineer working across machine learning, software systems, and robotics. From candidate search to robotic control, I build systems that connect research with practice.</p><a class="button" href="#work">Explore my work <span aria-hidden="true">↓</span></a></div>
+  <div class="hero-foot"><span>UC Berkeley · Aerospace Engineering</span><span>Python / TypeScript / C / ROS 2</span></div>
+</section>
+<section class="wrap work" id="work" aria-labelledby="work-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Built to solve.</h2></div><p>Retrieval, reasoning, and real-world systems.</p></div>
+  <div class="project-grid">
+    <article class="project featured">
+      <a class="cover hectur-cover" href="https://drive.google.com/file/d/1yVQeP7MNTp9eJdS9JW9ifJf4LD1dVzAd/view" aria-label="Watch the HECTUR robotic arm demonstration">
+        <img src="assets/hectur-demo.jpg" alt="UR7e robotic arm gripping a green cup during the HECTUR demonstration" width="1600" height="900" fetchpriority="high">
+        <span class="cover-label">ROBOTICS / UC BERKELEY</span><span class="play"><span aria-hidden="true">▶</span> Watch demo</span><span class="cover-caption">HECTUR <span>Head & eye control for UR7e</span></span>
+      </a>
+      <div class="project-body"><div class="project-meta"><span>01 — ROBOTICS</span><span>EECS 106A · Team project</span></div><h3>Control through a different lens.</h3><p>Hands-free robotic control using facial tracking, ROS 2, and MoveIt. I contributed the concept, early FaceMesh prototype, inverse-kinematics planning, and the live presentation.</p><ul class="tags" aria-label="Technologies"><li>MediaPipe</li><li>ROS 2</li><li>MoveIt</li></ul><div class="project-links"><a href="https://pranavmeraga.github.io/eecs106a-final-project/">Project & team contributions <span aria-hidden="true">↗</span></a><a href="https://drive.google.com/file/d/1yVQeP7MNTp9eJdS9JW9ifJf4LD1dVzAd/view">Video <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="project">
+      <div class="cover mercor-cover"><span class="cover-label">RETRIEVAL / MERCOR</span><img src="assets/mercor-logotype.svg" alt="Mercor" width="990" height="343" loading="lazy"><div class="pipeline" aria-label="Retrieval pipeline"><span>Retrieve</span><b aria-hidden="true">→</b><span>Re-rank</span><b aria-hidden="true">→</b><span>Match</span></div></div>
+      <div class="project-body"><div class="project-meta"><span>02 — MACHINE LEARNING</span><span>Project made for Mercor</span></div><h3>Better search. Better matches.</h3><p>A candidate search engine combining vector and lexical retrieval, reciprocal rank fusion, cross-encoder re-ranking, and an LLM judge to evaluate role-specific criteria.</p><ul class="tags" aria-label="Technologies"><li>Python</li><li>Turbopuffer</li><li>Voyage AI</li><li>OpenAI</li></ul><div class="project-links"><a href="https://github.com/pmeraga/portfolio/tree/main/projects/mercor-candidate-search">Explore the project <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/blob/main/projects/mercor-candidate-search/src/pipeline.py">Source <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="project">
+      <div class="cover code-cover"><span class="cover-label">DEVELOPER TOOLS / FOUNDING MLE PROJECT</span><div class="code-window"><div class="window-title"><span aria-hidden="true">● ● ●</span> code_intelligence.py</div><pre><code><span class="code-purple">index</span>(apex, metadata)
+  <span class="code-gray">↓</span>
+<span class="code-green">SQLite dependency graph</span>
+  <span class="code-gray">↓</span>
+<span class="code-purple">query</span>(symbols, relationships)
+  <span class="code-gray">↓</span>
+<span class="code-green">Compact context for agents</span></code></pre></div></div>
+      <div class="project-body"><div class="project-meta"><span>03 — DEVELOPER TOOLS</span><span>Startup founding MLE role</span></div><h3>Make a codebase legible to AI.</h3><p>A Salesforce code-intelligence pipeline built for a founding MLE role at a startup. It indexes Apex and metadata into SQLite, then exposes deterministic, compact queries for LLM agents.</p><ul class="tags" aria-label="Technologies"><li>Python</li><li>SQLite</li><li>MCP</li><li>21 tests passing</li></ul><div class="project-links"><a href="https://github.com/pmeraga/portfolio/blob/main/projects/sf-code-intelligence/PROJECT_SUMMARY.md">Implementation summary <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/sf-code-intelligence">Source <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="project">
+      <div class="cover square-cover"><span class="cover-label">SYSTEMS / SQUARE KETTLE</span><div class="square-title">Backtest.<br>Inspect.<br><span>Iterate.</span></div><div class="cover-bottom">Market data → Strategy → Evaluation</div></div>
+      <div class="project-body"><div class="project-meta"><span>04 — SOFTWARE ENGINEERING</span><span>Square Kettle take-home</span></div><h3>A clearer view of a strategy.</h3><p>Improvements to a supplied futures backtesting system: PnL exception handling, crossed-quote validation, multi-strategy visualization, custom indicators, and unit tests.</p><ul class="tags" aria-label="Technologies"><li>NautilusTrader</li><li>Python</li><li>React</li><li>Databento</li></ul><div class="project-links"><a href="https://github.com/pmeraga/portfolio/tree/main/projects/square-kettle-backtester">Explore the project <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/square-kettle-backtester/unit_test">Tests <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="project">
+      <div class="cover arc-cover"><span class="cover-label">REASONING / ARC-AGI</span><div class="arc-demo" aria-label="An example input and output grid from the included ARC training puzzles"><div><span class="diagram-label">INPUT</span><div class="arc-grid" id="arc-input"></div></div><span class="grid-arrow" aria-hidden="true">→</span><div><span class="diagram-label">OUTPUT</span><div class="arc-grid" id="arc-output"></div></div></div><span class="cover-bottom">Learn the pattern. Predict the transformation.</span></div>
+      <div class="project-body"><div class="project-meta"><span>05 — REASONING</span><span>ARC interview challenge</span></div><h3>From examples to a new answer.</h3><p>An LLM agent for ARC grid puzzles, with structured prompts, text and JSON grid parsing, and an evaluation harness over 20 included puzzles.</p><ul class="tags" aria-label="Technologies"><li>TypeScript</li><li>Anthropic</li><li>OpenAI</li></ul><div class="project-links"><a href="https://github.com/pmeraga/portfolio/tree/main/projects/arc-agi-agent">Explore the project <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/blob/main/projects/arc-agi-agent/src/agent.ts">Agent source <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="project">
+      <div class="cover aml-cover"><span class="cover-label">ANOMALY DETECTION / MACROBASE</span><div class="aml-diagram"><span>Transaction features</span><b aria-hidden="true">↓</b><span>Isolation Forest</span><b aria-hidden="true">↓</b><span class="aml-highlight">Alerts + explanations</span></div><span class="cover-bottom">Score / Classify / Explain</span></div>
+      <div class="project-body"><div class="project-meta"><span>06 — APPLIED MACHINE LEARNING</span><span>AML transaction analysis</span></div><h3>Find the unusual. Explain why.</h3><p>A MacroBase-inspired pipeline that scores transactions, compares percentile thresholds, and explains anomalies with overrepresented categorical attributes.</p><ul class="tags" aria-label="Technologies"><li>Isolation Forest</li><li>pandas</li><li>scikit-learn</li></ul><div class="project-links"><a href="https://github.com/pmeraga/portfolio/blob/main/projects/macrobase-aml/TECHNICAL_WRITEUP.md">Technical write-up <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/macrobase-aml">Source & limitations <span aria-hidden="true">↗</span></a></div></div>
+    </article>
+  </div>
+</section>
+<section class="research" id="research" aria-labelledby="research-title"><div class="wrap">
+  <div class="section-heading"><div><p class="eyebrow">02 / RESEARCH</p><h2 id="research-title">Where it started.</h2></div><p>Machine learning meets engineering data.</p></div>
+  <article class="research-feature"><div class="research-copy"><p class="northwestern">NORTHWESTERN UNIVERSITY <span>SUMMER 2022</span></p><h3>High-Risk Asteroid<br>Impact Classification</h3><p>Research under the Wing Kam Liu Group exploring asteroid data with machine learning. Northwestern’s Mechanistic Data Science website publishes my final report and presentation.</p><div class="research-links"><a class="button light" href="https://mechanistic-data-science.mech.northwestern.edu/pranav-meraga/">Northwestern publication <span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/blob/main/K_Means_Clustering_Asteroid_Data.ipynb">Clustering notebook <span aria-hidden="true">↗</span></a></div><a class="report-link" href="https://mechanistic-data-science.mech.northwestern.edu/files/2022/09/Pranav-Meraga-Report.pdf">Read the final report (PDF) <span aria-hidden="true">↗</span></a></div><figure><img src="assets/asteroid-clusters.png" width="382" height="262" alt="Scatter plot from the asteroid notebook, showing three clusters by estimated diameter and relative velocity" loading="lazy"><figcaption>Original output from the K-means clustering notebook</figcaption></figure></article>
+  <div class="earlier-work"><a href="https://github.com/pmeraga/portfolio/tree/main/CNN%2BLSTM"><span class="work-number">01</span><div><h3>CNN + LSTM for manufacturing</h3><p>Keyhole deformation classification in laser powder bed fusion · Northwestern research</p></div><span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/tree/main/NOVA_espidf"><span class="work-number">02</span><div><h3>NOVA embedded robotics</h3><p>Differential-drive control, real-time video, and obstacle avoidance · ESP-IDF / C</p></div><span aria-hidden="true">↗</span></a><a href="https://github.com/pmeraga/portfolio/blob/main/CE93_project.ipynb"><span class="work-number">03</span><div><h3>Water access & life expectancy</h3><p>Exploring the relationship through engineering data analytics · UC Berkeley CE 93</p></div><span aria-hidden="true">↗</span></a></div>
+</div></section>
+</main>
+<footer class="wrap footer"><div><a class="identity" href="#">PM<span class="identity-dot">.</span></a><p>Pranav Meraga<br><span>Machine learning. Systems. Robotics.</span></p></div><a href="https://github.com/pmeraga/portfolio">Explore the full repository <span aria-hidden="true">↗</span></a><a href="#">Back to top ↑</a></footer>
+<script src="script.js" defer></script>
+</body>
+</html>

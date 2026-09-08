@@ -1,5 +1,7 @@
 # Pranav Meraga — Engineering Portfolio
 
+**[View the portfolio website](https://pmeraga.github.io/portfolio/)** · [Website setup and custom domain](WEBSITE.md)
+
 Projects spanning machine learning, retrieval systems, developer tools, robotics, and data engineering. Each project keeps its own source, dependencies, and setup instructions.
 
 ## Featured projects
@@ -58,7 +60,7 @@ A team-built head and eye control interface for a UR7e robotic arm. My contribut
 | [CNN + LSTM](CNN%2BLSTM/) | Research with Northwestern University's Wing Kam Liu Group on classifying keyhole deformations in laser powder bed fusion. |
 | [NOVA ESP-IDF](NOVA_espidf/) | Embedded C code for a differential-drive robot with real-time video and obstacle avoidance. |
 | [Engineering Data Analytics](CE93_project.ipynb) | Civil Engineering 93 study of access to safe water and life expectancy over time. |
-| [Asteroid Clustering](K_Means_Clustering_Asteroid_Data.ipynb) | Research under the Wing Kam Liu Group using K-means to explore NASA asteroid data by collision probability and potential impact. |
+| [Asteroid Clustering](K_Means_Clustering_Asteroid_Data.ipynb) | Research under the Wing Kam Liu Group using K-means to explore NASA asteroid data by collision probability and potential impact. [Northwestern publication: High-Risk Asteroid Impact Classification by Machine Learning Algorithms](https://mechanistic-data-science.mech.northwestern.edu/pranav-meraga/) (Summer 2022 report and presentation). |
 
 ## Running a project
 
