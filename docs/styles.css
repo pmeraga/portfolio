@@ -3,4 +3,6 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .project-body p,.research-copy>p:not(.northwestern),.hero-bottom p{font-size:16px}.cover-label{max-width:calc(100% - 40px)}
+.harness-cover{background:#192724;color:#eef5ef}.harness-terminal{width:68%;margin-top:20px;border:1px solid #5e7d72;border-radius:7px;overflow:hidden;background:#0e1715;box-shadow:0 12px 35px #08110d55}.harness-flow{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;font:13px "SFMono-Regular",Consolas,monospace}.harness-flow span{border:1px solid #4c7465;border-radius:4px;padding:8px 9px;background:#182823;white-space:nowrap}.harness-flow b{font-weight:400;color:#a5d06e}.harness-flow .harness-result{background:#d5fa64;border-color:#d5fa64;color:#162018}
 @media(max-width:700px){.project-meta{flex-wrap:wrap}.hero-foot{font-size:12px}.arc-demo{margin-top:28px}.cover-bottom{font-size:12px}.cover-caption span{max-width:190px}.cover-label{font-size:12px}.code-window pre{padding:12px 18px}.square-title{margin-top:28px}.cover-caption{bottom:25px}}
+@media(max-width:700px){.harness-terminal{width:84%}.harness-flow{gap:7px;padding:18px 10px;font-size:10px}.harness-flow span{padding:7px 5px}}

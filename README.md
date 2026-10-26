@@ -10,6 +10,7 @@ Projects spanning machine learning, retrieval systems, developer tools, robotics
 | --- | --- | --- | --- |
 | [Candidate Search & Re-Ranking](projects/mercor-candidate-search/) | Project made for **Mercor** | Combines dense and lexical retrieval, reciprocal rank fusion, cross-encoder re-ranking, and hard-criteria checks to find candidates for a role. | Python, Turbopuffer, Voyage AI, OpenAI |
 | [Salesforce Code Intelligence](projects/sf-code-intelligence/) | Project for a **founding MLE role at a startup** | Indexes Apex and Salesforce metadata into SQLite and exposes compact, deterministic query tools for LLM agents. | Python, SQLite, XML, MCP |
+| [Agentic Harness](https://github.com/pmeraga/agentic-harness) | Agentic Harness take-home | Runs coding-agent benchmarks through a queue, Docker-isolated setup/agent/grading phases, and durable results. | Python, Docker, SQLite, OpenAI Responses API |
 | [Square Kettle Backtester](projects/square-kettle-backtester/) | Square Kettle software engineering take-home | Extends a supplied futures backtesting framework with data validation, exception-handling fixes, multi-strategy visualization, and tests. | Python, NautilusTrader, Databento, React, Vite |
 | [ARC-AGI Agent](projects/arc-agi-agent/) | ARC interview challenge | Prompts an LLM with grid transformation examples, parses predictions, and evaluates them against 20 included puzzles. | TypeScript, Anthropic/OpenAI SDKs |
 | [MacroBase AML Anomaly Detection](projects/macrobase-aml/) | AML transaction analysis project | Scores unusual transactions with Isolation Forest, applies percentile thresholds, and explains alerts using categorical support and risk ratios. | Python, pandas, scikit-learn |
@@ -28,6 +29,12 @@ The original README reports public evaluation improvements using evaluator feedb
 Built for a founding machine learning engineer role at a startup. The implementation parses Apex classes, methods, SOQL references, object fields, and lookup relationships into a dependency index. Its query layer returns compact, JSON-safe responses for agent tools, with incremental indexing, deterministic ranking, and a latency/payload benchmark harness.
 
 [Implementation summary](projects/sf-code-intelligence/PROJECT_SUMMARY.md) · [Setup](projects/sf-code-intelligence/README.md) · [Tests](projects/sf-code-intelligence/tests/)
+
+### Agentic Harness — Universal coding-agent evaluation
+
+A reusable single-machine harness for evaluating coding agents against different benchmarks. The CLI queues tasks in SQLite; workers run setup, agent, and grading phases in Docker containers with a task-specific shared workspace, then retain per-task scores and logs. It includes Bash, Python, and JSONL benchmark adapters, a mini-swe-agent integration, and an optional OpenAI Responses API agent.
+
+[Repository and setup](https://github.com/pmeraga/agentic-harness) · [Architecture and adapters](https://github.com/pmeraga/agentic-harness#architecture) · [Validation evidence](https://github.com/pmeraga/agentic-harness/blob/main/docs/validation.md)
 
 ### Square Kettle — Backtesting and visualization
 
