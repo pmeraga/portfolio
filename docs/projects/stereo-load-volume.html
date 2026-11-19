@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A computer vision case study on calibrated stereo, truck-bed registration, and volume estimation with partial surface observations.">
+  <title>Stereo Truck-Load Volume Estimation | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Computer vision · 3D measurement</p>
+  <h1>Stereo Truck-Load Volume Estimation</h1>
+  <p class="case-intro">A calibrated stereo workflow for estimating the volume of material in a truck bed when parts of the load surface are out of view.</p>
+  <ul class="tags" aria-label="Methods"><li>Calibrated stereo</li><li>3D registration</li><li>Spatial interpolation</li><li>Uncertainty evaluation</li></ul>
+  <figure class="stereo-figure">
+    <img src="../assets/stereo-load-volume.svg" width="720" height="304" alt="A stereo camera pair observes a truck bed. In the bed frame, a height grid combines observed cells with hatched cells representing occluded regions.">
+    <figcaption>Conceptual schematic. A bed-aligned grid tracks which surface heights were observed and which were inferred.</figcaption>
+  </figure>
+  <div class="case-copy">
+    <section>
+      <h2>Reconstruct in meters and register to the bed</h2>
+      <p>Camera intrinsics and the relative pose of the stereo pair turn matched image points into metric 3D points in the camera frame. A separate registration aligns that reconstruction with the truck bed. The bed floor defines zero height, and the bed footprint determines which cells contribute to the estimate.</p>
+    </section>
+    <section>
+      <h2>Integrate the surface over the footprint</h2>
+      <p>A 2.5D grid represents the load as one height per cell above the bed floor. Summing each cell’s height times its area gives the volume estimate. For occluded regions, the project compared nearest-neighbor, inverse-distance weighting (IDW), radial basis function (RBF), Gaussian process (GP), and biharmonic interpolation. Tracking which cells were inferred made it possible to assess how much the estimate depended on filling gaps.</p>
+    </section>
+    <section>
+      <h2>Evaluate gap filling and check the geometry</h2>
+      <p>Masked holdouts hid portions of the observed surface so interpolated heights could be compared with the withheld observations. Geometry checks examined the floor alignment and bed footprint. Together, these checks assessed interpolation where observations were available and highlighted uncertainty where occlusions left little support.</p>
+    </section>
+    <section>
+      <h2>Bed registration was the principal bottleneck</h2>
+      <p>A misplaced or tilted floor shifts height estimates across many cells, and a misaligned footprint changes which cells are counted. Those errors can carry through to the total even when local surface interpolation is consistent.</p>
+    </section>
+  </div>
+  <div class="case-actions"><a href="../index.html#work">Back to selected work</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p></footer>
+</body>
+</html>

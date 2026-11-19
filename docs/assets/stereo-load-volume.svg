@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 304" width="720" height="304" role="img" aria-labelledby="title desc">
+  <title id="title">Stereo reconstruction and bed-aligned height grid</title>
+  <desc id="desc">Two abstract cameras observe a load in a truck bed. The grid at right shows measured heights in green and occluded cells with diagonal hatching.</desc>
+  <defs>
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8">
+      <rect width="8" height="8" fill="#eff3ed"/>
+      <path d="M-2 2L2-2M0 8L8 0M6 10L10 6" stroke="#71877f" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="304" fill="#e5eeeb"/>
+  <g fill="#f7fbf8" stroke="#c3d4cc">
+    <rect x="24" y="24" width="304" height="256" rx="5"/>
+    <rect x="392" y="24" width="304" height="256" rx="5"/>
+  </g>
+  <g fill="#203a33" font-family="system-ui, sans-serif" font-weight="650" font-size="22">
+    <text x="48" y="62">Stereo reconstruction</text>
+    <text x="416" y="62">Bed-aligned height grid</text>
+  </g>
+  <g fill="none" stroke="#689382" stroke-width="2" stroke-dasharray="5 5">
+    <path d="M108 117l18 67m-18-67 112 61m6-61-100 67m100-67-6 61"/>
+  </g>
+  <g fill="#294a40">
+    <rect x="91" y="97" width="34" height="20" rx="4"/>
+    <rect x="209" y="97" width="34" height="20" rx="4"/>
+  </g>
+  <g fill="#c9e0d4">
+    <circle cx="108" cy="107" r="5"/>
+    <circle cx="226" cy="107" r="5"/>
+  </g>
+  <path d="M72 206l68-42 144 34-68 47z" fill="#c9ded3" stroke="#294a40" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M72 206v20l144 36 68-47v-17m-68 47v17" fill="none" stroke="#294a40" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M100 204l26-20 23-1 25-21 46 16 36 24-42 26z" fill="#6da28d" stroke="#294a40" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M344 152h32m-10-10 10 10-10 10" fill="none" stroke="#294a40" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(416 91)">
+    <rect width="256" height="128" fill="#d2e4da"/>
+    <path d="M32 32h64V0h64v32h32v64h-32v32H64V96H32z" fill="#a2c8b6"/>
+    <path d="M96 32h64v32h32v32H64V64h32z" fill="#6da28d"/>
+    <path d="M224 0h32v64h-64V32h32z" fill="url(#hatch)"/>
+    <path d="M32 0v128M64 0v128M96 0v128M128 0v128M160 0v128M192 0v128M224 0v128M0 32h256M0 64h256M0 96h256" stroke="#f7fbf8"/>
+    <rect width="256" height="128" fill="none" stroke="#294a40" stroke-width="2"/>
+  </g>
+  <rect x="416" y="239" width="17" height="17" fill="#6da28d"/>
+  <rect x="536" y="239" width="17" height="17" fill="url(#hatch)" stroke="#71877f"/>
+  <g fill="#294a40" font-family="system-ui, sans-serif" font-size="17">
+    <text x="441" y="253">Observed</text>
+    <text x="561" y="253">Occluded</text>
+  </g>
+</svg>

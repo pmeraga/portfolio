@@ -14,3 +14,4 @@ Northwestern publication: https://mechanistic-data-science.mech.northwestern.edu
 - `biomedical-validation.png`: aggregate AUC figure generated for the biomedical agent-benchmarking case study from its verified reference results. Data source: Shirvalkar et al., Dryad DOI 10.5061/dryad.b2rbnzsvr (CC0); chart is project-authored.
 
 - `assets/ball-tracking-demo.mp4` and `assets/ball-tracking-poster.png`: user-requested recording of the ball-tracking application, copied from the local completed demo.
+- `assets/stereo-load-volume.svg` is an original schematic drawn with generic geometry for the stereo truck-load volume case study.

@@ -108,3 +108,9 @@
   overflow: hidden;
 }
 .video-demo video { display: block; width: 100%; height: auto; }
+
+.stereo-picture { background: #e5eeeb; padding: 0; }
+.stereo-picture img, .stereo-figure img { display: block; width: 100%; height: auto; }
+.stereo-figure { max-width: 880px; margin: 30px 0 16px; }
+.stereo-figure img { border-radius: 5px; }
+.stereo-figure figcaption { color: var(--muted); font-size: 14px; margin-top: 10px; }
