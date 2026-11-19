@@ -11,12 +11,11 @@ Building [Cygnus Robotics](https://cygnus-robotics.com), with tools for robot-le
 | Project | What it demonstrates | Evidence |
 | --- | --- | --- |
 | [Cygnus Robotics](projects/cygnus-robotics) | Building data curation tools for robot learning: inspect demonstrations, preserve recovery behavior, and trace every retained frame back to its source. | [Case study](docs/projects/cygnus-robotics.html) |
-| [Multi-camera Capture & Synchronization](projects/argus-capture) | An episode collection workspace for egocentric and wrist cameras, with multipart uploads, shared playback, and automatic alignment from recorded audio. | [Case study](docs/projects/argus-capture.html) |
+| [Multi-camera Capture & Synchronization](projects/argus-capture) | An episode collection workspace for egocentric and wrist cameras, with multipart uploads, shared playback, and automatic alignment from recorded audio. | [Case study](docs/projects/argus-capture.html) · [Sync review](https://argus-capture-46dvetz3k-yotta-robotics.vercel.app/sync-review/#9efabf4b3560140981e6d7e7f896f9bd42ba288270314be6610902f86e2023a8) |
 | [Concurrent Camera Streaming Service](projects/camera-grpc) | A versioned camera API with fresh-frame reads, streaming JPEGs, health checks, and one shared latest-frame cache per camera. | [Case study](docs/projects/camera-grpc.html) |
-| [Manufacturing Event Investigation](projects/factory-triage) | An investigation workspace that reconstructs production history, surfaces conflicting events, and connects job reviews to their original records. | [Case study](docs/projects/factory-triage.html) |
+| [Manufacturing Event Investigation](projects/factory-triage) | An investigation workspace that reconstructs production history, surfaces conflicting events, and connects job reviews to their original records. | [Case study](docs/projects/factory-triage.html) · [Live workspace](https://factory-triage-psi.vercel.app/?view=overview&status=open&sort=urgency) |
 | [Biomedical AI Agent Benchmarking](projects/biomedical-agent-benchmark/) | Statistical reference analyses, deployment-matched validation, rubric audits, and paired agent-response review on biomedical data. | [Case study](docs/biomedical-agent-benchmark.html) · [Code & skills](projects/biomedical-agent-benchmark/README.md) |
 | [Clinical Model Failure Evaluation](projects/clinical-llm-evaluation) | A reproducible evaluation harness that separates semantic failures from infrastructure errors and compares matched control, challenge, and rescue prompts. | [Case study](docs/projects/clinical-llm-evaluation.html) |
-| [Constraint Enforcement for Tool-calling Agents](projects/agent-constraints) | Deterministic budget and dietary checks around a meal-ordering agent, including tests against an independent exhaustive allocation matcher. | [Case study](docs/projects/agent-constraints.html) |
 
 ### Biomedical AI Agent Benchmarking — Statistical evaluation case study
 
@@ -25,6 +24,7 @@ Built a reproducible evaluation workflow for AI agents performing biomedical ana
 Both reviewed decoder responses recovered the key result. Earlier platform scores were reported at **48% and 92%**, with neither receiving full marks in that reported pair. The historical task-version linkage remains unverified. Skills include evaluation design, biostatistics, temporal validation, cluster-aware resampling, Python/HDF5 data engineering, reproducible research, and technical communication.
 
 [Case study and full skills matrix](projects/biomedical-agent-benchmark/README.md) · [Runnable reference](projects/biomedical-agent-benchmark/src/decoder_analysis.py) · [Evaluation record](projects/biomedical-agent-benchmark/docs/evaluation.md)
+| [Real-time Ball Tracking](docs/assets/ball-tracking-demo.mp4) | Live WebRTC video, pixel-based ball detection, and timestamp-matched WebTransport coordinates. | [Video demonstration](docs/assets/ball-tracking-demo.mp4) |
 
 ## Other engineering projects
 

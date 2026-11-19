@@ -12,3 +12,5 @@ Northwestern publication: https://mechanistic-data-science.mech.northwestern.edu
 - `assets/cygnus-timeline.png`: episode timeline from the user's Cygnus Robotics development workspace, also represented in the public company demonstration. The image shows the demo's phase/retention proposal, not independently verified robot policy performance.
 
 - `biomedical-validation.png`: aggregate AUC figure generated for the biomedical agent-benchmarking case study from its verified reference results. Data source: Shirvalkar et al., Dryad DOI 10.5061/dryad.b2rbnzsvr (CC0); chart is project-authored.
+
+- `assets/ball-tracking-demo.mp4` and `assets/ball-tracking-poster.png`: user-requested recording of the ball-tracking application, copied from the local completed demo.

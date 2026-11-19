@@ -20,5 +20,5 @@ Waiting time and descriptive review signals do not establish downtime, utilizati
 
 ## Links
 
-- [Application](https://factory-triage-psi.vercel.app)
+- [Application](https://factory-triage-psi.vercel.app/?view=overview&status=open&sort=urgency)
 - [Public source](https://github.com/pmeraga/factory-triage)

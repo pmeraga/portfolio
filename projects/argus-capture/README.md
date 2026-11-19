@@ -16,7 +16,7 @@ The included synchronization tests recover positive and negative offsets from ge
 
 ## Limits
 
-Browser playback corrects drift above 120 ms and remains approximate. Audio alignment estimates a constant offset within a five-minute analysis window. The optional optical-flow script is experimental. Original recordings and access keys are excluded.
+Browser playback corrects drift above 120 ms and remains approximate. Audio alignment estimates a constant offset within a five-minute analysis window. The optional optical-flow script is experimental. The sync-review link below includes the playback key supplied for public sharing.
 
 ## Run
 
@@ -35,3 +35,5 @@ Offsets follow `camera_time = episode_time + camera_offset`. A failed audio matc
 
 - [Full application source](https://github.com/pmeraga/argus-capture)
 - [Synchronization core](https://github.com/pmeraga/portfolio/tree/main/projects/argus-capture)
+
+- [Recorded synchronization review](https://argus-capture-46dvetz3k-yotta-robotics.vercel.app/sync-review/#9efabf4b3560140981e6d7e7f896f9bd42ba288270314be6610902f86e2023a8)
