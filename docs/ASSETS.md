@@ -10,3 +10,5 @@ Northwestern publication: https://mechanistic-data-science.mech.northwestern.edu
 
 - `assets/argus-ego.jpg`, `assets/argus-left.jpg`, `assets/argus-right.jpg`: generated demonstration frames from the user-owned multi-camera collection project. These show synthetic content, with that label retained in the portfolio.
 - `assets/cygnus-timeline.png`: episode timeline from the user's Cygnus Robotics development workspace, also represented in the public company demonstration. The image shows the demo's phase/retention proposal, not independently verified robot policy performance.
+
+- `biomedical-validation.png`: aggregate AUC figure generated for the biomedical agent-benchmarking case study from its verified reference results. Data source: Shirvalkar et al., Dryad DOI 10.5061/dryad.b2rbnzsvr (CC0); chart is project-authored.

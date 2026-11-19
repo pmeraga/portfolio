@@ -1,0 +1,85 @@
+{
+  "status": "Author-proposed rubric; frozen before the reviewed task runs. Not an exported platform grading rubric.",
+  "task": "Frozen pain-decoder qualification",
+  "total_weight": 100,
+  "criteria": [
+    {
+      "id": 1,
+      "weight": 25,
+      "criterion": "Uses a deployment-matched forward assessment with personalization before the Stage 3 handover and frozen subsequent monitoring; does not substitute shuffled validation for this target.",
+      "grading_notes": "Assess the validation target, not a specific implementation library."
+    },
+    {
+      "id": 2,
+      "weight": 15,
+      "criterion": "Correctly rejects technical qualification because the deployment-relevant participant-balanced AUC is below the 0.60 gate.",
+      "grading_notes": "Primary reference 0.4891; disclosed timing/preprocessing alternatives also fail. Do not enforce an arbitrary exact decimal."
+    },
+    {
+      "id": 3,
+      "weight": 15,
+      "criterion": "Fits clinical pain cutpoints, band selection and LDA parameters using calibration information only and preserves the deployed score orientation and candidate definition.",
+      "grading_notes": "No monitoring-based threshold/band/hemisphere/polarity selection. Respect the supplied SOP; alternative diagnostic models are labeled sensitivities."
+    },
+    {
+      "id": 4,
+      "weight": 10,
+      "criterion": "Uses the clinical observation hierarchy and equal participant weighting, reconciling duplicate survey matches and bilateral recordings rather than treating sides or rows as independent people.",
+      "grading_notes": "Five participants; averaging side AUCs within each person is the charter metric. Small immaterial source-count rounding is not a major inference error."
+    },
+    {
+      "id": 5,
+      "weight": 10,
+      "criterion": "Provides a fair conventional random-validation comparator and explains why its apparently passing result answers a different prediction question.",
+      "grading_notes": "Reference clean nested-in-fold selection yields 0.6566 at seed42. Other transparent fold choices/estimates are acceptable; exact reproduction is not a hidden requirement."
+    },
+    {
+      "id": 6,
+      "weight": 8,
+      "criterion": "Assesses uncertainty using the dependence structure and distinguishes uncertainty within monitoring series from variation between five observed summaries.",
+      "grading_notes": "Accept defensible alternatives; a person-only resampling range cannot be described as complete future-time/new-patient confidence coverage."
+    },
+    {
+      "id": 7,
+      "weight": 5,
+      "criterion": "Identifies sparse high-pain monitoring support and handles AUC estimability explicitly.",
+      "grading_notes": "P2/P3 have three distinct high monitoring surveys each. For resampling analyses, disclose undefined replicates and conditional intervals; exact diagnostic counts are not required."
+    },
+    {
+      "id": 8,
+      "weight": 5,
+      "criterion": "Checks timing-alignment and plausible preprocessing sensitivities without selecting the candidate using monitoring outcomes.",
+      "grading_notes": "The conclusion should not depend on a few phase-boundary records. Disclosed alternative alignments and sound sensitivity analyses are acceptable."
+    },
+    {
+      "id": 9,
+      "weight": 3,
+      "criterion": "Restricts conclusions to technical qualification of this fixed workflow and released measurements, and states appropriate further validation needs.",
+      "grading_notes": "No inference of analgesic efficacy, safe autonomous stimulation, best possible decoder or population readiness."
+    },
+    {
+      "id": 10,
+      "weight": 2,
+      "criterion": "Provides the requested offline Python analysis that reads the supplied ZIP and reproduces the evidence, analysis and decision.",
+      "grading_notes": "Assess executable reproducibility when the actual file is available; do not infer it from narrative claims."
+    },
+    {
+      "id": 11,
+      "weight": 1,
+      "criterion": "Provides the requested PDF with a decision-first recommendation and interpretable person-level evidence.",
+      "grading_notes": "No exact page count or author-reference layout is required."
+    },
+    {
+      "id": 12,
+      "weight": 1,
+      "criterion": "Includes an interpretable chart contrasting the relevant assessments.",
+      "grading_notes": "Judge whether it answers the requested comparison, not cosmetic similarity."
+    }
+  ],
+  "rules": [
+    "Do not apply criteria from earlier ICU, oncology or precision-planning tasks.",
+    "Do not reallocate weights after viewing responses merely to force a lower score. Correct factual errors, duplication or missing requested requirements with a documented version change.",
+    "A model that gives a defensible deployment-matched analysis and satisfies the requested outputs has solved the task, regardless of the desired a preferred score.",
+    "Alternative numerical estimates, uncertainty methods or timing sensitivities require scientific assessment, not automatic exact-match deductions."
+  ]
+}

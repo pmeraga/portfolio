@@ -1,0 +1,58 @@
+{
+  "per_side": [
+    {
+      "device": "P1R",
+      "person": "P1",
+      "random_oof_AUC_monitoring_only": 0.6494845360824743
+    },
+    {
+      "device": "P2L",
+      "person": "P2",
+      "random_oof_AUC_monitoring_only": 0.5073529411764706
+    },
+    {
+      "device": "P2R",
+      "person": "P2",
+      "random_oof_AUC_monitoring_only": 0.5872093023255814
+    },
+    {
+      "device": "P3L",
+      "person": "P3",
+      "random_oof_AUC_monitoring_only": 0.14102564102564102
+    },
+    {
+      "device": "P3R",
+      "person": "P3",
+      "random_oof_AUC_monitoring_only": 0.5357142857142857
+    },
+    {
+      "device": "P4L",
+      "person": "P4",
+      "random_oof_AUC_monitoring_only": 0.5347222222222222
+    },
+    {
+      "device": "P4R",
+      "person": "P4",
+      "random_oof_AUC_monitoring_only": 0.4103896103896104
+    },
+    {
+      "device": "P5L",
+      "person": "P5",
+      "random_oof_AUC_monitoring_only": 0.5532348446255732
+    },
+    {
+      "device": "P5R",
+      "person": "P5",
+      "random_oof_AUC_monitoring_only": 0.4845117845117845
+    }
+  ],
+  "per_person": {
+    "P1": 0.6494845360824743,
+    "P2": 0.5472811217510261,
+    "P3": 0.3383699633699634,
+    "P4": 0.4725559163059163,
+    "P5": 0.5188733145686788
+  },
+  "person_balanced_mean": 0.5053129704156117,
+  "note": "Random-fold scores restricted to the same monitoring observations; still fitted with other monitoring observations, so not a deployment estimator."
+}

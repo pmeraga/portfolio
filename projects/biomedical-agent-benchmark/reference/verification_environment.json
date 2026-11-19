@@ -1,0 +1,16 @@
+{
+  "verification_date": "2026-11-18",
+  "python": "3.13.7",
+  "numpy": "2.3.2",
+  "pandas": "3.0.1",
+  "scipy": "1.16.1",
+  "scikit_learn": "1.8.0",
+  "h5py": "3.16.0",
+  "checks": [
+    "Original Dryad archive SHA-256 and ten required member hashes verified",
+    "Complete CLI replay including 2000 resamples per block length matched reference aggregates",
+    "Four unit checks passed",
+    "Ruff lint and formatting passed",
+    "Case-study and portfolio-card browser preview inspected; no desktop horizontal overflow"
+  ]
+}
