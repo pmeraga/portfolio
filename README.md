@@ -2,31 +2,44 @@
 
 **[View the portfolio website](https://pmeraga.github.io/portfolio/)** · [Website setup and custom domain](WEBSITE.md)
 
-Projects spanning machine learning, retrieval systems, developer tools, robotics, and data engineering. Each project keeps its own source, dependencies, and setup instructions.
+Projects spanning robotics, applied AI, model evaluations, retrieval systems, and data engineering. Each project keeps its own source, dependencies, and setup instructions.
 
-## Featured projects
+## Robotics, applied AI, and evaluation
+
+Building [Cygnus Robotics](https://cygnus-robotics.com), with tools for robot-learning data curation and traceable frame selection. The website includes technical case studies for the projects below.
+
+| Project | What it demonstrates | Evidence |
+| --- | --- | --- |
+| [Cygnus Robotics](projects/cygnus-robotics) | Building data curation tools for robot learning: inspect demonstrations, preserve recovery behavior, and trace every retained frame back to its source. | [Case study](docs/projects/cygnus-robotics.html) |
+| [Multi-camera Capture & Synchronization](projects/argus-capture) | An episode collection workspace for egocentric and wrist cameras, with multipart uploads, shared playback, and automatic alignment from recorded audio. | [Case study](docs/projects/argus-capture.html) |
+| [Concurrent Camera Streaming Service](projects/camera-grpc) | A versioned camera API with fresh-frame reads, streaming JPEGs, health checks, and one shared latest-frame cache per camera. | [Case study](docs/projects/camera-grpc.html) |
+| [Manufacturing Event Investigation](projects/factory-triage) | An investigation workspace that reconstructs production history, surfaces conflicting events, and connects job reviews to their original records. | [Case study](docs/projects/factory-triage.html) |
+| [Clinical Model Failure Evaluation](projects/clinical-llm-evaluation) | A reproducible evaluation harness that separates semantic failures from infrastructure errors and compares matched control, challenge, and rescue prompts. | [Case study](docs/projects/clinical-llm-evaluation.html) |
+| [Constraint Enforcement for Tool-calling Agents](projects/agent-constraints) | Deterministic budget and dietary checks around a meal-ordering agent, including tests against an independent exhaustive allocation matcher. | [Case study](docs/projects/agent-constraints.html) |
+
+## Other engineering projects
 
 | Project | Context | What it does | Stack |
 | --- | --- | --- | --- |
-| [Candidate Search & Re-Ranking](projects/mercor-candidate-search/) | Project made for **Mercor** | Combines dense and lexical retrieval, reciprocal rank fusion, cross-encoder re-ranking, and hard-criteria checks to find candidates for a role. | Python, Turbopuffer, Voyage AI, OpenAI |
+| [Candidate Search & Re-Ranking](projects/mercor-candidate-search/) | Assessment project | Combines dense and lexical retrieval, reciprocal rank fusion, cross-encoder re-ranking, and hard-criteria checks to find candidates for a role. | Python, Turbopuffer, Voyage AI, OpenAI |
 | [Salesforce Code Intelligence](projects/sf-code-intelligence/) | Project for a **founding MLE role at a startup** | Indexes Apex and Salesforce metadata into SQLite and exposes compact, deterministic query tools for LLM agents. | Python, SQLite, XML, MCP |
-| [Agentic Harness](https://github.com/pmeraga/agentic-harness) | Agentic Harness take-home | Runs coding-agent benchmarks through a queue, Docker-isolated setup/agent/grading phases, and durable results. | Python, Docker, SQLite, OpenAI Responses API |
-| [Square Kettle Backtester](projects/square-kettle-backtester/) | Square Kettle software engineering take-home | Extends a supplied futures backtesting framework with data validation, exception-handling fixes, multi-strategy visualization, and tests. | Python, NautilusTrader, Databento, React, Vite |
-| [ARC-AGI Agent](projects/arc-agi-agent/) | ARC interview challenge | Prompts an LLM with grid transformation examples, parses predictions, and evaluates them against 20 included puzzles. | TypeScript, Anthropic/OpenAI SDKs |
+| [Agentic Harness](https://github.com/pmeraga/agentic-harness) | Coding-agent evaluation | Runs coding-agent benchmarks through a queue, Docker-isolated setup/agent/grading phases, and durable results. | Python, Docker, SQLite, OpenAI Responses API |
+| [Futures Backtester](projects/square-kettle-backtester/) | Software engineering assessment | Extends a supplied futures backtesting framework with data validation, exception-handling fixes, multi-strategy visualization, and tests. | Python, NautilusTrader, Databento, React, Vite |
+| [ARC-AGI Agent](projects/arc-agi-agent/) | Reasoning assessment | Prompts an LLM with grid transformation examples, parses predictions, and evaluates them against 20 included puzzles. | TypeScript, Anthropic/OpenAI SDKs |
 | [MacroBase AML Anomaly Detection](projects/macrobase-aml/) | AML transaction analysis project | Scores unusual transactions with Isolation Forest, applies percentile thresholds, and explains alerts using categorical support and risk ratios. | Python, pandas, scikit-learn |
 | [HECTUR — Head-Eye Control and Tracking for UR7e](https://pranavmeraga.github.io/eecs106a-final-project/) | UC Berkeley EECS 106A final team project | Uses facial tracking to control a UR7e robotic arm, with ROS 2 actuation and MoveIt pose recall. | MediaPipe, ROS 2, MoveIt |
 
-### Candidate Search & Re-Ranking — Mercor
+### Candidate Search & Re-Ranking
 
-Built for Mercor, this two-stage search pipeline retrieves candidate profiles through vector ANN and native BM25, fuses the rankings, and applies cross-encoder scoring, structured criteria, and an LLM judge. The project includes role configurations, evaluation scripts, caching, and retry handling.
+This two-stage search pipeline retrieves candidate profiles through vector ANN and native BM25, fuses the rankings, and applies cross-encoder scoring, structured criteria, and an LLM judge. The project includes role configurations, evaluation scripts, caching, and retry handling.
 
 [Architecture and setup](projects/mercor-candidate-search/README.md) · [Pipeline](projects/mercor-candidate-search/src/pipeline.py)
 
 The original README reports public evaluation improvements using evaluator feedback to select hard-pass candidates. These are evaluation-specific results, not a held-out benchmark. Running the system requires authorized access to the original services and namespace; credentials and cached candidate records are excluded.
 
-### Salesforce Code Intelligence — Founding MLE project
+### Salesforce Code Intelligence
 
-Built for a founding machine learning engineer role at a startup. The implementation parses Apex classes, methods, SOQL references, object fields, and lookup relationships into a dependency index. Its query layer returns compact, JSON-safe responses for agent tools, with incremental indexing, deterministic ranking, and a latency/payload benchmark harness.
+The implementation parses Apex classes, methods, SOQL references, object fields, and lookup relationships into a dependency index. Its query layer returns compact, JSON-safe responses for agent tools, with incremental indexing, deterministic ranking, and a latency/payload benchmark harness.
 
 [Implementation summary](projects/sf-code-intelligence/PROJECT_SUMMARY.md) · [Setup](projects/sf-code-intelligence/README.md) · [Tests](projects/sf-code-intelligence/tests/)
 
@@ -36,7 +49,7 @@ A reusable single-machine harness for evaluating coding agents against different
 
 [Repository and setup](https://github.com/pmeraga/agentic-harness) · [Architecture and adapters](https://github.com/pmeraga/agentic-harness#architecture) · [Validation evidence](https://github.com/pmeraga/agentic-harness/blob/main/docs/validation.md)
 
-### Square Kettle — Backtesting and visualization
+### Backtesting and visualization
 
 Work on a supplied backtesting assessment, including fixes for unrealized PnL exception handling, crossed-quote validation, multi-strategy visualization, custom indicators, and candlestick sizing. The folder includes the Python backend, React frontend, unit tests, example notebooks, and supplied sample data.
 

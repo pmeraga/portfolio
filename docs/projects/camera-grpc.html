@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A versioned camera API with fresh-frame reads, streaming JPEGs, health checks, and one shared latest-frame cache per camera.">
+  <title>Concurrent Camera Streaming Service | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Robotics · Systems</p>
+  <h1>Concurrent Camera Streaming Service</h1>
+  <p class="case-intro">A versioned camera API with fresh-frame reads, streaming JPEGs, health checks, and one shared latest-frame cache per camera.</p>
+  <ul class="tags" aria-label="Technologies"><li>Python</li><li>gRPC / Protobuf</li><li>OpenCV</li><li>Async I/O</li></ul>
+  <div class="project-picture system-picture"><p>Shared camera worker</p><div class="system-slot">Latest JPEG + capture sequence</div><div class="system-calls"><code>GetFrame</code><code>GetStream</code><code>CheckHealth</code></div></div>
+  <div class="case-copy"><section><h2>The problem</h2><p>Multiple clients need live camera frames without opening the same device repeatedly or building an ever-growing queue. A fresh read also needs a precise definition.</p></section><section><h2>Implementation</h2><p>One worker owns each camera and publishes immutable JPEGs into a shared slot. A fresh request snapshots the capture sequence at server acceptance and waits for a later capture. Slow streaming clients skip frames. Request IDs, capture timestamps, and monotonic durations make latency and failures inspectable.</p></section><section><h2>Evidence</h2><p>The included tests use injected cameras and real loopback gRPC to exercise concurrent requests, captures awaiting encoding, stale frames, recovery, cancellation, deadlines, and decoding. The protocol and runnable server/client are included.</p></section><section><h2>Limits</h2><p>Capture time means completion of the software camera read. Sensor exposure and device buffering require hardware validation. The default service is local and uses an insecure loopback channel. Remote use requires authentication and TLS.</p></section></div>
+  <div class="case-actions"><a class="button" href="https://github.com/pmeraga/portfolio/tree/main/projects/camera-grpc">Protocol &amp; source</a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/camera-grpc">Project notes and reproducibility</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p><a href="../index.html#work">All projects</a></footer>
+</body>
+</html>

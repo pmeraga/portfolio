@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An episode collection workspace for egocentric and wrist cameras, with multipart uploads, shared playback, and automatic alignment from recorded audio.">
+  <title>Multi-camera Capture &amp; Synchronization | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Robotics · Data infrastructure</p>
+  <h1>Multi-camera Capture &amp; Synchronization</h1>
+  <p class="case-intro">An episode collection workspace for egocentric and wrist cameras, with multipart uploads, shared playback, and automatic alignment from recorded audio.</p>
+  <ul class="tags" aria-label="Technologies"><li>TypeScript</li><li>Signal processing</li><li>Cloudflare D1 / R2</li><li>FFmpeg</li></ul>
+  <div class="project-picture camera-pictures"><figure><img src="../assets/argus-ego.jpg" alt="Generated egocentric view of a robot collection demo" width="960" height="540" loading="lazy"><figcaption>Egocentric</figcaption></figure><figure><img src="../assets/argus-left.jpg" alt="Generated left wrist view of a robot collection demo" width="960" height="540" loading="lazy"><figcaption>Left wrist</figcaption></figure><figure><img src="../assets/argus-right.jpg" alt="Generated right wrist view of a robot collection demo" width="960" height="540" loading="lazy"><figcaption>Right wrist</figcaption></figure><span>Synthetic demonstration</span></div>
+  <div class="case-copy"><section><h2>The problem</h2><p>Independently recorded camera views start at different times. Manual offsets become a bottleneck when the amount of demonstration footage grows.</p></section><section><h2>Implementation</h2><p>The app stores episode metadata in D1 and originals in R2. A worker extracts audio-onset fingerprints across frequency bands and searches for a distinct correlation peak. The same estimator runs headlessly through FFmpeg. Weak or ambiguous matches are flagged for review.</p></section><section><h2>Evidence</h2><p>The included synchronization tests recover positive and negative offsets from generated audio, reject silence and repeating signals, and verify that playback remains inside the shared interval. The public repository contains the complete application, upload API, and integration tests.</p></section><section><h2>Limits</h2><p>Browser playback corrects drift above 120 ms and remains approximate. Audio alignment estimates a constant offset within a five-minute analysis window. The optional optical-flow script is experimental. Original recordings and access keys are excluded.</p></section></div>
+  <div class="case-actions"><a class="button" href="https://github.com/pmeraga/argus-capture">Full application source</a><a class="button" href="https://github.com/pmeraga/portfolio/tree/main/projects/argus-capture">Synchronization core</a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/argus-capture">Project notes and reproducibility</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p><a href="../index.html#work">All projects</a></footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Building data curation tools for robot learning: inspect demonstrations, preserve recovery behavior, and trace every retained frame back to its source.">
+  <title>Cygnus Robotics | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Company · Robot learning data</p>
+  <h1>Cygnus Robotics</h1>
+  <p class="case-intro">Building data curation tools for robot learning: inspect demonstrations, preserve recovery behavior, and trace every retained frame back to its source.</p>
+  <ul class="tags" aria-label="Technologies"><li>Python</li><li>LeRobot</li><li>CLIP</li><li>Video processing</li></ul>
+  <div class="project-picture cygnus-picture"><img src="../assets/cygnus-timeline.png" alt="Episode timeline from the Cygnus robotics curation demonstration" width="1600" height="600" loading="lazy"><span>Source timestamps · retained frames · review decisions</span></div>
+  <div class="case-copy"><section><h2>The problem</h2><p>A task label can hide failed attempts, recoveries, and long idle stretches. Removing frames without checking that structure can discard the behavior a policy needs to learn.</p></section><section><h2>Implementation</h2><p>The development pipeline combines temporal visual change, conservative perceptual deduplication, protected motion windows, and an optional CLIP/Gemma review. It writes a frame-level manifest and review video so every keep decision can be inspected.</p></section><section><h2>Evidence</h2><p>The public company site includes manipulation demonstrations, policy comparisons, and an autonomous-driving smoke test. Local development also includes LeRobot exports and audits of the retained-frame mapping.</p></section><section><h2>Limits</h2><p>Heuristic and model-generated phase labels require review. The examples demonstrate curation behavior on specific recordings. Downstream robot policy improvement has not been established by these demonstrations.</p></section></div>
+  <div class="case-actions"><a class="button" href="https://cygnus-robotics.com">Company website</a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/cygnus-robotics">Project notes and reproducibility</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p><a href="../index.html#work">All projects</a></footer>
+</body>
+</html>

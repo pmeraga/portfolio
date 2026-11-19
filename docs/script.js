@@ -11,3 +11,27 @@ for (const key of ["input", "output"]) {
     grid.appendChild(cell);
   }
 }
+
+const projectFilters = document.querySelector('.work-filters');
+if (projectFilters) {
+  const projects = [...document.querySelectorAll('.project-grid > .project')];
+  const count = document.getElementById('work-count');
+  projectFilters.hidden = false;
+  count.hidden = false;
+  function filterProjects(category) {
+    let visible = 0;
+    for (const project of projects) {
+      project.hidden = category !== 'all' && project.dataset.focus !== category;
+      if (!project.hidden) visible++;
+    }
+    for (const button of projectFilters.querySelectorAll('button')) {
+      button.setAttribute('aria-pressed', String(button.dataset.filter === category));
+    }
+    count.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'}`;
+  }
+  projectFilters.addEventListener('click', event => {
+    const button = event.target.closest('button[data-filter]');
+    if (button) filterProjects(button.dataset.filter);
+  });
+  filterProjects('all');
+}

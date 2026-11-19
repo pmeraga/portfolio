@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+package camera_rpc.camera.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+// Each camera has one capture worker and one shared, immutable latest-frame slot.
+// JPEG encoding happens once per captured frame, independently of client reads.
+service CameraService {
+  rpc GetFrame(GetFrameRequest) returns (FrameResponse);
+  rpc GetStream(GetStreamRequest) returns (stream FrameResponse);
+  // Checks capture-to-cache progress, not just worker/thread liveness.
+  // Returns a snapshot immediately; does not trigger or wait for a capture.
+  rpc CheckHealth(CheckHealthRequest) returns (CheckHealthResponse);
+}
+
+message RequestContext {
+  // Client-generated correlation ID; echoed in every response to this RPC.
+  string request_id = 1;
+  // Client wall-clock time immediately before invoking the RPC, in UTC.
+  google.protobuf.Timestamp client_request_sent_at = 2;
+}
+
+message GetFrameRequest {
+  RequestContext context = 1;
+  // Required logical camera ID; initially "webcam". Never a device path.
+  string camera_id = 2;
+  // Omitted means true. Snapshot the capture sequence at server acceptance.
+  // true: wait for a frame whose capture completed after that boundary.
+  // false: return the latest encoded frame immediately; empty cache -> UNAVAILABLE.
+  // Multiple fresh requests may receive the same qualifying frame.
+  // Use the gRPC deadline to bound waiting.
+  optional bool fresh = 3;
+}
+
+message GetStreamRequest {
+  RequestContext context = 1;
+  string camera_id = 2;
+  // Start with the next capture after server acceptance; subsequently deliver
+  // increasing sequences, taking the latest available frame on each iteration.
+  // Slow clients skip intermediate frames. No per-client frame FIFO is created.
+}
+
+message Frame {
+  string camera_id = 1;
+  // Changes whenever this camera's worker restarts. Sequence is scoped to it.
+  string capture_session_id = 2;
+  // Positive, increasing capture sequence; gaps are expected for slow readers.
+  uint64 sequence = 3;
+  // Server wall-clock time when webcam read completes, before JPEG encoding.
+  // This is a software capture timestamp, not a sensor exposure timestamp.
+  google.protobuf.Timestamp captured_at = 4;
+  // Complete JPEG bytes, directly decodable by cv2.imdecode. No base64 wrapper.
+  bytes jpeg = 5;
+  uint32 width = 6;
+  uint32 height = 7;
+}
+
+message ResponseContext {
+  string request_id = 1;
+  google.protobuf.Timestamp client_request_sent_at = 2;
+  // Handler acceptance boundary; repeated unchanged throughout a stream.
+  google.protobuf.Timestamp server_accepted_at = 3;
+  // Time this message is ready to hand to gRPC, before serialization/network I/O.
+  // This cannot represent actual client receipt or completed transmission.
+  google.protobuf.Timestamp server_response_ready_at = 4;
+  // Measured with the server's monotonic clock. For streams this is elapsed
+  // time since RPC acceptance, NOT a separate per-frame request latency.
+  google.protobuf.Duration server_elapsed = 5;
+}
+
+message FrameResponse {
+  ResponseContext context = 1;
+  Frame frame = 2;
+}
+
+message CheckHealthRequest {
+  RequestContext context = 1;
+  string camera_id = 2;
+}
+
+enum CameraHealthStatus {
+  CAMERA_HEALTH_STATUS_UNSPECIFIED = 0;
+  // No frame yet; worker is running within its startup grace period.
+  CAMERA_HEALTH_STATUS_STARTING = 1;
+  // Worker is running, a frame is cached, and BOTH capture age and cache-update
+  // age are strictly less than stale_after. No active recoverable error.
+  CAMERA_HEALTH_STATUS_SERVING = 2;
+  // Recoverable errors, but capture and cache-update ages remain below the
+  // threshold. Must not be used to hide a stalled capture/encoding pipeline.
+  CAMERA_HEALTH_STATUS_DEGRADED = 3;
+  // Worker stopped/failed, capture age OR cache-update age >= stale_after,
+  // or no first cache publication before startup grace expires.
+  CAMERA_HEALTH_STATUS_UNAVAILABLE = 4;
+}
+
+// The server MUST recompute status on each check using monotonic time, even
+// when the worker is blocked and cannot report its own failure. A live thread
+// or an open camera handle alone MUST NOT produce SERVING.
+//
+// cache_update_age = check_monotonic - last_successful_publish_monotonic
+// latest_frame_age = check_monotonic - cached_frame_capture_monotonic
+// Startup grace equals stale_after, measured from worker/session start.
+// Status priority: UNAVAILABLE > STARTING > DEGRADED > SERVING.
+// A successful, recent new publication may restore health after a stall.
+message CheckHealthResponse {
+  ResponseContext context = 1;
+  string camera_id = 2;
+  CameraHealthStatus status = 3;
+  // Human-readable diagnostic; clients should branch on status, not this text.
+  string detail = 4;
+  // Diagnostic only; true does not mean the camera is capturing or healthy.
+  bool worker_running = 5;
+  // Empty until a capture session has started.
+  string capture_session_id = 6;
+  // Zero and absent timestamp mean no frame has been published in this session.
+  uint64 latest_sequence = 7;
+  google.protobuf.Timestamp latest_captured_at = 8;
+  // Absent when no frame is cached. Monotonic age since that frame's capture.
+  google.protobuf.Duration latest_frame_age = 9;
+  // UTC time when a newly captured, successfully JPEG-encoded frame atomically
+  // replaced the cache. Update only when sequence advances in this session.
+  // Reads, retries, heartbeat events, and re-publishing the same capture MUST
+  // NOT reset this time. Identical image pixels from a new capture are valid.
+  // Absent until the first successful publication in the current session.
+  google.protobuf.Timestamp last_cache_updated_at = 10;
+  // Monotonic time since that publication; absent until the first publication.
+  google.protobuf.Duration cache_update_age = 11;
+  // Required positive server-configured timeout for this camera, also used as
+  // startup grace. Returned so clients can interpret the health decision.
+  google.protobuf.Duration stale_after = 12;
+}

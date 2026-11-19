@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A reproducible evaluation harness that separates semantic failures from infrastructure errors and compares matched control, challenge, and rescue prompts.">
+  <title>Clinical Model Failure Evaluation | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Model evaluations · Applied research</p>
+  <h1>Clinical Model Failure Evaluation</h1>
+  <p class="case-intro">A reproducible evaluation harness that separates semantic failures from infrastructure errors and compares matched control, challenge, and rescue prompts.</p>
+  <ul class="tags" aria-label="Technologies"><li>Python</li><li>Qwen2.5</li><li>Ollama</li><li>Paired experiments</li></ul>
+  <div class="project-picture study-picture"><p>Synthetic clinical pilot</p><div class="study-value">41 <span>semantic errors / 252 prompts</span></div><div class="system-calls"><span>Control</span><span>Challenge</span><span>Rescue</span></div><span>Saved pilot · exploratory evidence</span></div>
+  <div class="case-copy"><section><h2>The problem</h2><p>An aggregate accuracy number can hide why a model fails. Evaluation needs matched examples, deterministic labels, strict scoring, and enough provenance to inspect an individual result.</p></section><section><h2>Implementation</h2><p>Seven synthetic task families stress source attribution, arithmetic, unit conversion, conflicting history, negation, long context, and prompt injection. The runner checkpoints signed cases and configuration. Analysis checks completeness and reports paired differences with uncertainty estimates.</p></section><section><h2>Evidence</h2><p>The saved advanced pilot records 41 semantic errors in 252 prompts and zero operational errors. Lab-unit challenges failed in 12 of 12 contexts while controls and rescues had zero errors. Two highlighted failure families were replayed twice. The aggregate pilot summary, datasets, runner, analyzer, and tests are included.</p></section><section><h2>Limits</h2><p>These are related synthetic templates and exploratory failure discovery. They do not estimate clinical prevalence or prove an internal model mechanism. The rescue changed multiple inputs. The reserved confirmation phase has no reported result. Evidence-substring flags are reported separately from answer correctness.</p></section></div>
+  <div class="case-actions"><a class="button" href="https://github.com/pmeraga/portfolio/tree/main/projects/clinical-llm-evaluation">Code, tests &amp; evidence</a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/clinical-llm-evaluation">Project notes and reproducibility</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p><a href="../index.html#work">All projects</a></footer>
+</body>
+</html>

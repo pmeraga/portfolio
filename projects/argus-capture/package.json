@@ -1,0 +1,11 @@
+{
+  "name": "argus-sync-core",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/synchronization.test.mjs"
+  }
+}

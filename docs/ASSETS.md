@@ -7,3 +7,6 @@
 - `assets/favicon.svg`: simple PM typographic monogram.
 
 Northwestern publication: https://mechanistic-data-science.mech.northwestern.edu/pranav-meraga/ . This is the Summer 2022 research report/presentation page, not a claim of peer-reviewed journal publication.
+
+- `assets/argus-ego.jpg`, `assets/argus-left.jpg`, `assets/argus-right.jpg`: generated demonstration frames from the user-owned multi-camera collection project. These show synthetic content, with that label retained in the portfolio.
+- `assets/cygnus-timeline.png`: episode timeline from the user's Cygnus Robotics development workspace, also represented in the public company demonstration. The image shows the demo's phase/retention proposal, not independently verified robot policy performance.

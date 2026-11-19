@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Deterministic budget and dietary checks around a meal-ordering agent, including tests against an independent exhaustive allocation matcher.">
+  <title>Constraint Enforcement for Tool-calling Agents | Pranav Meraga</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header wrap"><a class="identity" href="../index.html" aria-label="Pranav Meraga home">PM<span class="identity-dot">.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">All projects</a><a href="https://github.com/pmeraga">GitHub</a></nav></header>
+<main id="main" class="wrap case-study">
+  <p class="eyebrow">Agent reliability · Evaluation</p>
+  <h1>Constraint Enforcement for Tool-calling Agents</h1>
+  <p class="case-intro">Deterministic budget and dietary checks around a meal-ordering agent, including tests against an independent exhaustive allocation matcher.</p>
+  <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Max-flow allocation</li><li>Property-style tests</li><li>Integer pricing</li></ul>
+  <div class="project-picture system-picture constraints-picture"><p>Model proposal</p><div class="system-slot">Budget + portions + explicit dietary evidence</div><p>Application validation before commitment</p></div>
+  <div class="case-copy"><section><h2>The problem</h2><p>A model can propose an order that sounds reasonable but exceeds the total budget or double-counts portions for people with overlapping dietary needs.</p></section><section><h2>Implementation</h2><p>The application checks the budget before saving and again before placement. The included modules itemize charges, normalize explicit dietary evidence, and allocate portions across restriction groups. Unknown tags require evidence. Pricing policy and tip choice come from application settings.</p></section><section><h2>Evidence</h2><p>The imported pricing and allocation tests include boundary cases, combined restrictions, insufficient portions, and 256 generated menus checked against an exhaustive matcher. This is contribution work on a supplied lunch-agent starter. The snapshot contains the constraint modules and their unit tests.</p></section><section><h2>Limits</h2><p>Menu tags and serving counts are assumptions supplied to the application. They do not verify restaurant allergy handling. The pricing defaults are estimates. The full model loop and real-order integrations are outside this source snapshot.</p></section></div>
+  <div class="case-actions"><a class="button" href="https://github.com/pmeraga/portfolio/tree/main/projects/agent-constraints">Constraint modules &amp; tests</a><a href="https://github.com/pmeraga/portfolio/tree/main/projects/agent-constraints">Project notes and reproducibility</a></div>
+</main>
+<footer class="wrap footer"><p>Pranav Meraga · Robotics, applied AI, and evaluation</p><a href="../index.html#work">All projects</a></footer>
+</body>
+</html>
